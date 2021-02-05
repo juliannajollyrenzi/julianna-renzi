@@ -1,5 +1,6 @@
 ---
 title: "About this site"
+theme: postcards.css
 description: |
   Some additional details about the website
 ---

@@ -1,5 +1,6 @@
 name: "."
 title: "Julianna Renzi"
+theme: postcards.css
 description: |
   Julianna Renzi
 output_dir: "docs"
@@ -9,4 +10,7 @@ navbar:
       href: index.html
     - text: "About"
       href: about.html
-output: distill::distill_article
+output: 
+  distill::distill_article
+  
+
