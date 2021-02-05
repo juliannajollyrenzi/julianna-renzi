@@ -1,7 +1,6 @@
 ---
 title: "Julianna Renzi"
 image: "Julianna_fishing.jpg"
-site: distill::distill_website
 links:
   - label: LinkedIn
     url: "https://www.linkedin.com/in/juliannarenzi/"
@@ -11,6 +10,7 @@ links:
     url: "https://github.com/juliannajollyrenzi"
   - label: Email
     url: "mailto:jrenzi@ucsb.edu"
+site: distill::distill_website
 output:
   postcards::jolla
 ---

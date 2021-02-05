@@ -1,0 +1,25 @@
+---
+title: "Principal Components Analysis "
+description: |
+  I used PCA to....
+author:
+  - name: Julianna Renzi
+date: 02-05-2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+To look at xxx I did xxx
+
+```{r}
+print("so smart")
+```
+
+
+
