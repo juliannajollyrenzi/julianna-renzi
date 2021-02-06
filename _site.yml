@@ -8,8 +8,8 @@ navbar:
   right:
     - text: "Home"
       href: index.html
-    - text: "About me"
-      href: about.html
+    - text: "CV"
+      href: cv/cv.html
     - text: "Code"
     - href: blog.html
 output: 

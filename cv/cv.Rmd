@@ -1,0 +1,69 @@
+---
+title: CV
+name: Julianna
+surname: Renzi
+position: "PhD Student"
+address: "Marine Sciences Institute: University of California, Santa Barbara"
+www: juliannarenzi.webflow.io/
+email: "jrenzi[at]ucsb.edu"
+twitter: JuliannaRenzi
+github: juliannajollyrenzi
+linkedin: juliannarenzi
+date: "`r format(Sys.time(), '%B %Y')`"
+aboutme: "Julianna is a first year PhD student at the University of California, Santa Barbara."
+output: 
+  vitae::markdowncv:
+    theme: kjhealy
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(vitae)
+```
+
+## About
+
+I study community ecology and the role of biodiversity in ecosystem stability. I work in coastal environments, with a current focus on coral reefs, although I've conducted research in salt marsh, oyster reef, mangrove, and desert ecosystems. I'm currently a first year PhD student in the Burkepile lab at UC Santa Barbara where I am studying the coral reefs of Mo'orea, French Polynesia. I love coding, data analysis, and Thai food. 
+
+## Education
+
+```{r}
+library(tibble)
+tribble(
+  ~ Degree, ~ Year, ~ Institution, ~ Where,
+  "B.S. in Environmental Science", "2013-2017", "University of Arizona", "Tucson, Arizona",
+  "M.S. in Marine Science and Conservation", "2018-2020", "Duke University Marine Lab", "Beaufort, North Carolina",
+  "PhD", "2020-Present", "University of California Santa Barbara", "Santa Barbara, California"
+) %>% 
+  detailed_entries(Degree, Year, Institution, Where)
+```
+
+
+## Publications
+
+```{r}
+library(dplyr)
+knitr::write_bib(c("vitae", "tibble"), "packages.bib")
+
+bibliography_entries("renzi_bib.bib") %>%
+  arrange(desc(issued))
+```
+
+
+## Work & Research Experience
+
+```{r}
+tribble(
+  ~Year, ~Experience, ~Desc,
+  "2018", "Smithsonian Institution Intern at the National Museum of Natural History", "Conducted research under the guidance of Dr. Chris Meyer using genetic techniques to examine invertebrate diversity on coral reefs.",
+  "2017", "Summer Student Fellow at the Woods Hole Oceanographic Institute", "NSF-funded fellowship to conduct independent research under the guidance of Dr. Simon Thorrold. Project focused on compound-specific stable isotope analysis of amino acids (CSIA-AA) and its potential uses for food web studies. ",
+  "2015-2017", "NASA Space Grant Research Intern and Intern Advisor", "Awarded two NASA grants to study shifting lifecycles in organisms with changes in climate with the USA National Phenology Network and to advise new Space Grant interns.",
+  "2016", "Summer Researcher with The Diversity Project", "UCLA/NSF undergraduate research program in California and Mo’orea, French Polynesia. Activities included conducting an independent research project under the guidance of Dr. Paul Barber and Dr. Peggy Fong.",
+  "2015", "Intern with The South African Shark Conservancy", "Research and outreach intern in Hermanus, South Africa. Duties included conducting elasmobranch and cetacean monitoring, Baited Remote Underwater Surveys, marine education, and egg case monitoring, as well as designing, implementing, and presenting a study on shyshark behavior.",
+  "2015", "Intern with The Nature Conservancy, Indonesia", "Conservation Intern with The Nature Conservancy in Jakarta, Indonesia. Created conservation modules for potential business partners and helped establish the Center for Conservation Excellence.",
+  "2015", "Intern with the Center for Oceanic Research and Education in South East Asia", "Marine research intern in the Gulf of Thailand. Duties included underwater data collection (e.g. live coral cover surveys, biodiversity estimates, and fish density surveys) in addition to out-of-water research preparation and data analysis."
+) %>% 
+  detailed_entries(Experience, Year, Desc)
+  
+```
+
