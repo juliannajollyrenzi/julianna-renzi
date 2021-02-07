@@ -15,4 +15,4 @@ output:
   postcards::jolla
 ---
  
-I'm a PhD student at the University of California, Santa Barbara in the department of Ecology, Evolution, and Marine Biology. I study coastal ecology, with a focus on coral reefs and the role of biodiversity in ecosystem functioning.
+I'm a PhD student at the University of California, Santa Barbara in the department of Ecology, Evolution, and Marine Biology. I study coastal ecology, with a focus on coral reefs and the role of biodiversity in ecosystem functioning. This is a website I made using distill to give examples of  code and data analysis I've done.
