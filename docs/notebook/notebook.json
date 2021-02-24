@@ -14,6 +14,6 @@
     "contents": "\nTo make future posts:\nType require(distill) into the console\nUse create_post(title = \"Post name here\", collection = \"notebook\") to specify a new lab notebook post\nOr use create_post(title = \"Post name here\", collection = \"posts\") to specify a new code example post\nBe sure to knit and push to Git after every new post\n\n\n\n",
     "preview": {},
     "last_modified": "2021-02-24T11:53:08-05:00",
-    "input_file": "firstpost.utf8.md"
+    "input_file": {}
   }
 ]
