@@ -1,0 +1,94 @@
+---
+title: "Interactive & choropleth mapping"
+description: |
+  In this post I use publically-available data on California Oil Spills to show how to quickly and easily create an interactive map using tmap. I also use these data to create a choropleth map showing the number of inland oil spills per county.
+author:
+  - name: Julianna Renzi
+date: 02-24-2021
+output:
+  distill::distill_article:
+    self_contained: false
+    code_folding: true
+    toc: true
+    toc_float: true
+---
+
+
+```{r setup, include=FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+require(tidyverse)
+require(here)
+require(sf)
+require(tmap)
+```
+
+
+## Load the data
+
+These data are on oil spills in California. They were downloaded as a shapefile from the **California Department of Fish and Wildlife** (read more about the dataset here: https://map.dfg.ca.gov/metadata/ds0394.html)
+
+```{r, message=FALSE, warning=FALSE}
+oil_spills <- read_sf(here("_posts", "2021-02-24-interactivemap", "data", "ds394", "ds394.shp"))
+
+oil_spills %>% st_crs # NAD 1983
+```
+
+Read in county borders
+
+```{r, message=FALSE, warning=FALSE}
+ca_counties <- read_sf(here("_posts", "2021-02-24-interactivemap", "data", "ca_counties", "CA_Counties_TIGER2016.shp")) %>% 
+  select(NAME, ALAND) %>% 
+  rename(county_name = NAME, land_area = ALAND) %>% 
+  st_transform(crs = st_crs(oil_spills)) # want crs to match oil spill data
+
+# double check CRS
+st_crs(oil_spills) == st_crs(ca_counties) # looks good
+```
+
+
+```{r, message=FALSE, warning=FALSE}
+ggplot() +
+  geom_sf(data = ca_counties) +
+  geom_sf(data = oil_spills, aes(color = INLANDMARI), alpha = 0.5) +
+  theme_minimal()
+```
+
+## Make an interactive map
+
+Now make it interactive
+
+```{r, message=FALSE, warning=FALSE}
+# set viewing mode to interactive
+tmap_mode(mode = "view")
+
+# make map with the polygon fill color updated by variable 'land_area', updating the color palette to "BuGn"), then add another shape layer for the sesbania records (added as dots)
+tm_shape(ca_counties) +
+  tm_polygons(col = "white") +
+  tm_shape(oil_spills) +
+  tm_dots(col = "INLANDMARI", title = "Area") +
+  tm_basemap("Esri.WorldTopoMap") # this sets the basemap--I changed it to the topographic map for fun but there are 3 options and one can change it in the GUI
+```
+
+## Create the choropleth map
+
+Now make a choropleth map where the fill color for each county depends on the count of inland oil spill events for 2008
+
+```{r, message=FALSE, warning=FALSE}
+# join data points to counties
+oil_counties <- ca_counties %>% 
+  st_join(oil_spills)
+
+oil_count <- oil_counties %>% 
+  filter(INLANDMARI == "Inland") %>% 
+  count(LOCALECOUN) 
+
+
+# plot
+ggplot(data = oil_count) +
+  geom_sf(aes(fill = n), color = "white", size = 0.1) + 
+  scale_fill_gradientn(colors = c("lightgray", "orange", "red")) +
+  theme_minimal() +
+  labs(fill = "Number of inland oil spills")
+```
+
+

@@ -1,0 +1,23 @@
+---
+title: "Set up my electronic lab notebook"
+description: |
+  Began setting up my electronic lab notebook and created my first post.
+author:
+  - name: Julianna Renzi
+date: 02-24-2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+To make future posts:
+
+- Type `require(distill)` into the console
+- Use `create_post(title = "Post name here", collection = "notebook")` to specify a new lab notebook post
+- Or use `create_post(title = "Post name here", collection = "posts")` to specify a new code example post
+- Be sure to `knit` and push to `Git` after every new post

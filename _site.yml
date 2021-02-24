@@ -12,6 +12,8 @@ navbar:
       href: cv/cv.html
     - text: "Code"      # add
       href: blog.html   # add
+    - text: "E-notebook"
+      href: notebook.html
 output: 
   distill::distill_article
   
