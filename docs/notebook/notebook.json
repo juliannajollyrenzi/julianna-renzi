@@ -1,5 +1,22 @@
 [
   {
+    "path": "notebook/2021-03-02-made-an-mcr-lter-app/",
+    "title": "Made a Mo'orea LTER app with Shiny",
+    "description": "I worked on creating an interactive graphing app to visualize long-term data from Mo'orea.",
+    "author": [
+      {
+        "name": "Julianna Renzi",
+        "url": {}
+      }
+    ],
+    "date": "2021-03-02",
+    "categories": [],
+    "contents": "\nI’ve spent the past couple of months exploring the Mo’orea Coral Reef LTER data (read more here: http://mcr.lternet.edu/) and created an interactive shiny app to visualize a couple of the core time series. The website is live here and the code I wrote to make the app can be found here. I’m hoping that the app will be a useful tool in showing the importance of long term research and could potentially be used in interactive outreach activities that show how long-term data can be used to spot trends over time and potential relationships between variables.\n\n\n\n",
+    "preview": {},
+    "last_modified": "2021-03-02T18:48:18-05:00",
+    "input_file": {}
+  },
+  {
     "path": "notebook/2021-02-24-firstpost/",
     "title": "Set up my electronic lab notebook",
     "description": "Began setting up my electronic lab notebook and created my first post.",

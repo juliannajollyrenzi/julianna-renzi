@@ -1,0 +1,22 @@
+---
+title: "Made a Mo'orea LTER app with Shiny"
+description: |
+  I worked on creating an interactive graphing app to visualize long-term data from Mo'orea.
+author:
+  - name: Julianna Renzi
+    url: {}
+date: 03-02-2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+I've spent the past couple of months exploring the Mo'orea Coral Reef LTER data (read more here: http://mcr.lternet.edu/) and created an interactive `shiny` app to visualize a couple of the core time series. The website is live [here](https://juliannarenzi.shinyapps.io/MCR_LTER_explore/) and the code I wrote to make the app can be found [here](https://github.com/juliannajollyrenzi/LTER_Shiny_app). 
+I'm hoping that the app will be a useful tool in showing the importance of long term research and could potentially be used in interactive outreach activities that show how long-term data can be used to spot trends over time and potential relationships between variables.
+
+
